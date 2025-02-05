@@ -4,7 +4,7 @@ let res = $response;
 let data = JSON.parse(res.body);
 
 // 检查并修改数据
-data.userData.profileProgress.hasUserBVNProfile = true;
+//data.userData.profileProgress.hasUserBVNProfile = true;
 
 // 遍历 featureStatuses 对象，将所有 false 值改为 true
 for (let key in data.featureStatuses) {
@@ -12,9 +12,9 @@ for (let key in data.featureStatuses) {
         data.featureStatuses[key] = true;
     }
 }
-for (let key in data.profileProgress) {
-    if (data.profileProgress[key] === false) {
-        data.profileProgress[key] = true;
+for (let key in data.userData.profileProgress) {
+    if (data.userData.profileProgress[key] === false) {
+        data.userData.profileProgress[key] = true;
     }
 }
 // 将修改后的数据设置为响应体
